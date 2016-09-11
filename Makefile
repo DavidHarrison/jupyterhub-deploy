@@ -32,10 +32,10 @@ run:
 	docker run -it \
 		-v $$SSH_AUTH_SOCK:/root/agent.sock \
 		--env SSH_AUTH_SOCK=/root/agent.sock \
-		-v $(shell pwd):/root/jupyterhub-deploy:rw \
-		-v $(shell pwd)/../.ssh:/root/.ssh \
-		-v $(shell pwd)/../proxy-certs/:/root/jupyterhub-deploy/proxy-certs \
-		-v $(shell pwd)/../certificates/:/root/jupyterhub-deploy/certificates \
+		-v "$(shell pwd)":/root/jupyterhub-deploy:rw \
+		-v "$(shell pwd)/../.ssh":/root/.ssh \
+		-v "$(shell pwd)/../proxy-certs/":/root/jupyterhub-deploy/proxy-certs \
+		-v "$(shell pwd)/../certificates/":/root/jupyterhub-deploy/certificates \
 		$(DEPLOY_C) $(RUN_CMD)
 
 deploy:
